@@ -1,0 +1,12 @@
+import com.ssverma.Deps
+
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+android {
+    namespace = "com.ssverma.core.image"
+}
+
+dependencies {
+    api Deps.ComposeSupport.coil
+    implementation Deps.Compose.material
+}

@@ -1,0 +1,14 @@
+import com.ssverma.Deps
+
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+android {
+    namespace 'com.ssverma.core.navigation'
+}
+
+dependencies {
+    api Deps.ComposeSupport.navigation
+    api Deps.Accompanist.navAnimation
+
+    implementation Deps.Di.hiltCompose
+}

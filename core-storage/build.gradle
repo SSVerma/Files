@@ -1,0 +1,23 @@
+import com.ssverma.Deps
+
+plugins {
+    id 'org.jetbrains.kotlin.kapt'
+}
+
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+android {
+    namespace 'com.ssverma.core.storage'
+}
+
+dependencies {
+    api Deps.Storage.room
+    kapt Deps.Storage.Kapt.room
+
+    api Deps.Storage.dataStorePreferences
+    api Deps.Storage.dataStoreProto
+    api Deps.Storage.protobuf
+
+    implementation Deps.Di.daggerHiltCore
+    implementation Deps.Di.Kapt.daggerHiltCompiler
+}

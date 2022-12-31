@@ -1,0 +1,22 @@
+import com.ssverma.Deps
+import com.ssverma.Modules
+
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+android {
+    namespace 'com.ssverma.shared.ui'
+}
+
+dependencies {
+    implementation project(Modules.Core.ui)
+    implementation project(Modules.Shared.domain)
+    implementation project(Modules.Core.image)
+
+    implementation Deps.ComposeSupport.activity
+    implementation Deps.ComposeSupport.constraintLayout
+    implementation Deps.Accompanist.pager
+    implementation Deps.Accompanist.pagerIndicators
+
+    testImplementation Deps.Test.Local.junit
+    androidTestImplementation Deps.Test.Instrument.junit
+}
