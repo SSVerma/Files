@@ -11,7 +11,7 @@ dependencies {
     implementation project(Modules.Core.image)
 
     api Deps.Compose.ui
-    api Deps.Compose.material
+    api Deps.Compose.material3
     api Deps.Compose.tooling
 
     testImplementation Deps.Test.Local.junit

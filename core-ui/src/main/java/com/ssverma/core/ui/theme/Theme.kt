@@ -1,47 +1,96 @@
 package com.ssverma.core.ui.theme
 
+import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorPalette = darkColors(
-    primary = darkGreen200,
-    primaryVariant = darkGreen800,
-    secondary = yellow200,
-    background = gray900,
-    surface = gray800,
-    onPrimary = gray900,
-    onSecondary = gray900,
-    onBackground = Color.White,
-    onSurface = white100,
+
+private val filesLightColorScheme = lightColorScheme(
+    primary = filesLightPrimary,
+    onPrimary = filesLightOnPrimary,
+    primaryContainer = filesLightPrimaryContainer,
+    onPrimaryContainer = filesLightOnPrimaryContainer,
+    secondary = filesLightSecondary,
+    onSecondary = filesLightOnSecondary,
+    secondaryContainer = filesLightSecondaryContainer,
+    onSecondaryContainer = filesLightOnSecondaryContainer,
+    tertiary = filesLightTertiary,
+    onTertiary = filesLightOnTertiary,
+    tertiaryContainer = filesLightTertiaryContainer,
+    onTertiaryContainer = filesLightOnTertiaryContainer,
+    error = filesLightError,
+    errorContainer = filesLightErrorContainer,
+    onError = filesLightOnError,
+    onErrorContainer = filesLightOnErrorContainer,
+    background = filesLightBackground,
+    onBackground = filesLightOnBackground,
+    surface = filesLightSurface,
+    onSurface = filesLightOnSurface,
+    surfaceVariant = filesLightSurfaceVariant,
+    onSurfaceVariant = filesLightOnSurfaceVariant,
+    outline = filesLightOutline,
+    inverseOnSurface = filesLightInverseOnSurface,
+    inverseSurface = filesLightInverseSurface,
+    inversePrimary = filesLightInversePrimary,
+    surfaceTint = filesLightSurfaceTint,
+    outlineVariant = filesLightOutlineVariant,
+    scrim = filesLightScrim,
 )
 
-private val LightColorPalette = lightColors(
-    primary = blue600,
-    primaryVariant = blue800,
-    secondary = green600,
-    background = Color.White,
-    surface = white100,
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onBackground = gray900,
-    onSurface = gray900,
+
+private val filesDarkColorScheme = darkColorScheme(
+    primary = filesDarkPrimary,
+    onPrimary = filesDarkOnPrimary,
+    primaryContainer = filesDarkPrimaryContainer,
+    onPrimaryContainer = filesDarkOnPrimaryContainer,
+    secondary = filesDarkSecondary,
+    onSecondary = filesDarkOnSecondary,
+    secondaryContainer = filesDarkSecondaryContainer,
+    onSecondaryContainer = filesDarkOnSecondaryContainer,
+    tertiary = filesDarkTertiary,
+    onTertiary = filesDarkOnTertiary,
+    tertiaryContainer = filesDarkTertiaryContainer,
+    onTertiaryContainer = filesDarkOnTertiaryContainer,
+    error = filesDarkError,
+    errorContainer = filesDarkErrorContainer,
+    onError = filesDarkOnError,
+    onErrorContainer = filesDarkOnErrorContainer,
+    background = filesDarkBackground,
+    onBackground = filesDarkOnBackground,
+    surface = filesDarkSurface,
+    onSurface = filesDarkOnSurface,
+    surfaceVariant = filesDarkSurfaceVariant,
+    onSurfaceVariant = filesDarkOnSurfaceVariant,
+    outline = filesDarkOutline,
+    inverseOnSurface = filesDarkInverseOnSurface,
+    inverseSurface = filesDarkInverseSurface,
+    inversePrimary = filesDarkInversePrimary,
+    surfaceTint = filesDarkSurfaceTint,
+    outlineVariant = filesDarkOutlineVariant,
+    scrim = filesDarkScrim,
 )
 
 @Composable
-fun FilesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
+fun FilesTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
+    content: @Composable() () -> Unit
+) {
+    val filesColorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+        darkTheme -> filesDarkColorScheme
+        else -> filesLightColorScheme
     }
+
     MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
+        colorScheme = filesColorScheme,
+        typography = filesTypography,
+        shapes = filesShapes,
         content = content
     )
 }

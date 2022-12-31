@@ -3,7 +3,7 @@ package com.ssverma.files
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import com.ssverma.core.ui.theme.FilesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
