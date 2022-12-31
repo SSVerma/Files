@@ -8,5 +8,5 @@ android {
 
 dependencies {
     api Deps.ComposeSupport.coil
-    implementation Deps.Compose.material
+    implementation Deps.Compose.material3
 }

@@ -6,7 +6,8 @@ object Versions {
     const val material = "1.6.1"
     const val compose = "1.4.0-alpha02"
     const val accompanist = "0.28.0"
-    const val Coroutines = "1.6.1"
+    const val coroutines = "1.6.1"
+    const val material3 = "1.0.1"
 
     object AndroidSdk {
         const val Min = 21
@@ -63,12 +64,13 @@ object Deps {
     const val coreKtx = "androidx.core:core-ktx:${Versions.core}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Coroutines}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
 
     object Compose {
         const val ui = "androidx.compose.ui:ui:${Versions.compose}"
-        const val material = "androidx.compose.material:material:${Versions.compose}"
         const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+        const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
+        const val windowSize = "androidx.compose.material3:material3-window-size-class:${Versions.material3}"
     }
 
     object ComposeSupport {

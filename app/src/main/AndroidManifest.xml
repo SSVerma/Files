@@ -11,12 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FilesBySS"
+        android:theme="@style/Theme.Files"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.FilesBySS">
+            android:theme="@style/Theme.Files">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
