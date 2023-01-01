@@ -56,6 +56,9 @@ android {
 dependencies {
     implementation project(Modules.Core.ui)
     implementation project(Modules.Core.navigation)
+    implementation project(Modules.Feature.browse)
+    implementation project(Modules.Feature.clean)
+    implementation project(Modules.Feature.nearbyShare)
 
     implementation Deps.material
     implementation Deps.ComposeSupport.activity

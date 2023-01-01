@@ -17,5 +17,12 @@ object Modules {
 
     object Feature {
         const val browse = ":feature-browse"
+        const val browseNavigation = ":feature-browse-navigation"
+
+        const val clean = ":feature-clean"
+        const val cleanNavigation = ":feature-clean-navigation"
+
+        const val nearbyShare = ":feature-nearby-share"
+        const val nearbyShareNavigation = ":feature-nearby-share-navigation"
     }
 }

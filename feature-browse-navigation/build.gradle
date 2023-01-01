@@ -1,0 +1,11 @@
+import com.ssverma.Modules
+
+apply from: "$rootProject.projectDir/android-library.gradle"
+
+android {
+    namespace 'com.ssverma.feature.browse.navigation'
+}
+
+dependencies {
+    implementation project(Modules.Core.navigation)
+}

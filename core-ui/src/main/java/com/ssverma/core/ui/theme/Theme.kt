@@ -4,7 +4,10 @@ import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
 private val filesLightColorScheme = lightColorScheme(
@@ -76,7 +79,9 @@ private val filesDarkColorScheme = darkColorScheme(
 fun FilesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
-    content: @Composable() () -> Unit
+    statusBarColor: Color = Color.Transparent,
+    navigationBarColor: Color = Color.Transparent,
+    content: @Composable () -> Unit
 ) {
     val filesColorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
@@ -85,6 +90,18 @@ fun FilesTheme(
         }
         darkTheme -> filesDarkColorScheme
         else -> filesLightColorScheme
+    }
+
+    val systemUiController = rememberSystemUiController()
+    SideEffect {
+        systemUiController.setStatusBarColor(
+            color = statusBarColor,
+            darkIcons = !darkTheme
+        )
+        systemUiController.setNavigationBarColor(
+            color = navigationBarColor,
+            darkIcons = !darkTheme
+        )
     }
 
     MaterialTheme(
